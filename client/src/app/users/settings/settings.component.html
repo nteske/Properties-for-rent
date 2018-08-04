@@ -1,0 +1,135 @@
+<div class="container" *ngIf="isDataLoaded" style=" margin:0 auto 5px;  max-width:900px;">
+  <form method="post" enctype="multipart/form-data" [formGroup]="form" (ngSubmit)="onSubmit(picFile)">
+  <div class="row" style="margin-top:5px;">
+    <!-- left column -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="text-center">
+              <img [src]="url" class="images rounded-circle img-thumbnail" alt="images">
+          <label for="avatar" class="kamera">
+                  <img src="../../../assets/images/camera.png" class="taster">
+              <input type="file" accept="image/*" name='avatar' (change)="onImageAdded($event)" id="avatar"  style="display:none">
+          </label>
+          <div *ngIf="mistake">
+            File type must be an "image".
+          </div>
+      </div>
+    </div>
+    <!-- edit form column -->
+    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+      <h3>Personal info</h3>
+        <div class="mb-3">
+          <label class="col-md-3 control-label">First name:</label>
+          <div class="col-md-8">
+            <input class="form-control" id="firstName" formControlName="firstName" type="text">
+          </div>
+          <div *ngIf="form.controls['firstName'].errors && !form.controls['firstName'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['firstName'].errors.required">
+                Valid first name is required.
+            </div>
+            <div [hidden]="!form.controls['firstName'].errors.minlength">
+                First name is too short.
+            </div>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label class="col-md-3 control-label">Last name:</label>
+          <div class="col-md-8">
+            <input class="form-control" id="lastName" formControlName="lastName" type="text">
+          </div>
+          <div *ngIf="form.controls['lastName'].errors && !form.controls['lastName'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['lastName'].errors.required">
+                Valid last name is required.
+            </div>
+            <div [hidden]="!form.controls['lastName'].errors.minlength">
+                Last name is too short.
+            </div>
+        </div>
+        </div>
+        <div class="mb-3">
+            <label class="col-md-3 control-label">Username:</label>
+            <div class="col-md-8">
+              <input class="form-control" id="userName" formControlName="userName" type="text">
+            </div>
+            <div *ngIf="form.controls['userName'].errors && !form.controls['userName'].pristine" class="error-msg">
+              <div [hidden]="!form.controls['userName'].errors.required">
+                  Valid username is required.
+              </div>
+              <div [hidden]="!form.controls['userName'].errors.minlength">
+                  Username is too short.
+              </div>
+          </div>
+          </div>
+        <div class="mb-3">
+          <label class="col-md-3 control-label">Email:</label>
+          <div class="col-md-8">
+            <input class="form-control" id="email" formControlName="email" type="email">
+          </div>
+          <div *ngIf="form.controls['email'].errors && !form.controls['email'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['email'].errors.required">
+                Valid email is required.
+            </div>
+            <div [hidden]="!form.controls['email'].errors.minlength">
+                Email is too short.
+            </div>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label class="col-md-3 control-label">Phone:</label>
+          <div class="col-md-8">
+            <input class="form-control" id="phone" formControlName="phone" type="tel">
+          </div>
+          <div *ngIf="form.controls['phone'].errors && !form.controls['phone'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['phone'].errors.required">
+                Valid phone number is required.
+            </div>
+            <div [hidden]="!form.controls['phone'].errors.minlength">
+                Phone number is too short.
+            </div>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label class="col-md-3 control-label">Address:</label>
+          <div class="col-md-8">
+            <input class="form-control" id="street" formControlName="street" type="text">
+          </div>
+          <div *ngIf="form.controls['street'].errors && !form.controls['street'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['street'].errors.required">
+                Valid address is required.
+            </div>
+            <div [hidden]="!form.controls['street'].errors.minlength">
+                Address is too short.
+            </div>
+        </div>
+        </div>
+        <div class="mb-3">
+          <label class="col-md-3 control-label">Address2:</label>
+          <div class="col-md-8">
+            <input class="form-control" id="street2" formControlName="street2" type="text">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="col-md-3 control-label">Password:</label>
+          <div class="col-md-8">
+            <input class="form-control" id="password" formControlName="password"  type="password">
+          </div>
+          <div *ngIf="form.controls['password'].errors && !form.controls['password'].pristine" class="error-msg">
+            <div [hidden]="!form.controls['password'].errors.required">
+                Valid password is required.
+            </div>
+            <div [hidden]="!form.controls['password'].errors.minlength">
+                Password is too short.
+            </div>
+        </div>
+        </div>
+        <div class="row" style="margin-bottom:5px;">
+          <div class="col-xs-6" style="margin-left:30px; margin-right:10px;">
+            <button type="submit" class="btn btn-primary" [disabled]="!form.valid" >Save Changes</button>
+          </div>
+          <div class="col-xs-6" style="margin:0px;">
+            <a style="color:white;" class="btn btn-secondary" (click)="GoForPassword()">Change password</a>
+          </div>
+        </div>
+    </div>
+  </div>
+</form>
+</div>

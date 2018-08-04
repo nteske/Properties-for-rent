@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@media only screen and (max-width: 576px) {
+     .container{
+        padding-top:0px;
+    }
+}
+@media only screen and (min-width: 576px) {
+    .container{
+       padding-top:60px;
+   }
+}
+
+table tr td{
+    color:#382434;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.table-hover>tbody>tr.no-hover:hover {
+    background-color: #ffffff;
+}
+
+.text-center{
+    position:relative;
+}
+
+.img-thumbnail{
+    width: 260px;
+    height: 260px;
+}
+
+.avatar{
+    margin-top:12px;
+    margin-bottom: 15px;
+}

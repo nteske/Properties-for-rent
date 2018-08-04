@@ -1,0 +1,51 @@
+<div class="container" *ngIf="isDataLoaded" style="margin:0 auto 5px; max-width:900px;">
+   <div class="row" style="margin-top:40px;">
+    <!-- left column -->
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="text-center">
+              <img  [src]="url" class="avatar images rounded-circle img-thumbnail" alt="avatar">
+              <star-rating [starType]="'svg'" [speed]="'slow'" [size]="'large'" [rating]="star" [disabled]="true"></star-rating>
+      </div>
+    </div>
+    <!-- edit form column -->
+    <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+      <table class="table table-user-information table-hover">
+        <tbody>
+          <tr>
+            <td>First name:</td>
+            <td>{{users.firstName}}</td>
+          </tr>
+          <tr>
+            <td>Last name:</td>
+            <td>{{users.lastName}}</td>
+          </tr>
+          <tr>
+            <td>Username:</td>
+            <td>{{users.userName}}</td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>{{users.email}}</td>
+          </tr>
+          <tr>
+            <td>Phone:</td>
+            <td>{{users.phone}}</td>
+          </tr>
+          <tr>
+            <td>Address:</td>
+            <td>{{users.street}}</td>
+          </tr>
+          <tr>
+            <td>Address2:</td>
+            <td>{{users.street2}}</td>
+          </tr>
+          <tr class="no-hover"> 
+            <td></td>
+            <td><button *ngIf="itIsMe()" type="button" (click)="settings()" class="btn btn-success">Edit your profile</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

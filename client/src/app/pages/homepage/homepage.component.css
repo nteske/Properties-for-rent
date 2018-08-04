@@ -1,0 +1,52 @@
+@media only screen and (max-width: 924px) {
+    .container {
+        text-align:center;
+    }
+}
+@media only screen and (min-width: 924px) {
+    .container {
+        text-align:left;
+    }
+}
+.product-device {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  width: 500px;
+  height: 500px;
+  border-radius: 21px;
+}
+
+.money{
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    font-size: 105%;
+}
+
+.boja{
+    color:black;
+}
+.boja2{
+    color:#007bff;
+}
+
+.inpRound{
+    width:280px;
+    margin: 0 auto 5px;
+    padding-left:17px;
+    border-radius: 21px;
+}
+
+.product-device::before {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  bottom: 10%;
+  left: 10px;
+  border-radius: 5px;
+}
+
+.card:hover{
+    cursor:pointer;
+}

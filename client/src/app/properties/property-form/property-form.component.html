@@ -1,0 +1,194 @@
+
+<div class="container" >
+        <div style="text-align:center;">
+            <h2>Apartments</h2>
+        </div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-row justify-content-center toCent" style="max-width:500px;">
+        <div class="form-group col-md-6">
+          <label for="inputTitle">Title</label>
+          <input type="text" class="form-control" id="inputTitle" placeholder="Enter title" formControlName="title">
+          <div *ngIf="form.controls['title'].errors && !form.controls['title'].pristine" class="error-msg">
+                <div [hidden]="!form.controls['title'].errors.required">
+                    Valid title is required.
+                </div>
+                <div [hidden]="!form.controls['title'].errors.minlength">
+                    Title is too short.
+                </div>
+            </div>  
+        </div>
+      </div>
+
+
+    <div class="form-row justify-content-center toCent" style="max-width:500px">
+        <div class="form-group col-md-6">
+          <label for="inputDeposit">Deposit</label>
+          <input type="number" class="form-control" id="inputDeposit" placeholder="Enter deposit in euros" formControlName="deposit">
+          <div *ngIf="form.controls['deposit'].errors && !form.controls['deposit'].pristine" class="error-msg">
+                <div [hidden]="!form.controls['deposit'].errors.required">
+                    Valid deposit is required.
+                </div>
+                <div [hidden]="!form.controls['deposit'].errors.min">
+                    Deposit is too small (min 50).
+                </div>
+                <div [hidden]="!form.controls['deposit'].errors.max">
+                        Deposit is too big (max 1000).
+                    </div>
+            </div>
+       
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputRooms">Rooms</label>
+          <input type="number" class="form-control" id="inputRooms" placeholder="Enter number of rooms" formControlName="rooms">
+          <div *ngIf="form.controls['rooms'].errors && !form.controls['rooms'].pristine" class="error-msg">
+                  <div [hidden]="!form.controls['rooms'].errors.required">
+                          Valid rooms number is required.
+                        </div>
+                        <div [hidden]="!form.controls['rooms'].errors.min">
+                                Room number is too small(min 1)
+                        </div>
+                        <div [hidden]="!form.controls['rooms'].errors.max">
+                                Room number is too big(max 10)
+                        </div>
+                </div>
+        </div>
+      </div>
+
+
+        <div class="form-row justify-content-center toCent" style="max-width:500px">
+                <div class="form-group col-md-6">
+                  <label for="inputArea">Area</label>
+                  <input type="number" class="form-control" id="inputArea" placeholder="Enter area in m2" formControlName="area">
+                  <div *ngIf="form.controls['area'].errors && !form.controls['area'].pristine" class="error-msg">
+                                <div [hidden]="!form.controls['area'].errors.required">
+                                    Valid area number is required.
+                                </div>
+                                <div [hidden]="!form.controls['area'].errors.min">
+                                    Area is too small (min 10).
+                                </div>
+                                <div [hidden]="!form.controls['area'].errors.max">
+                                        Area is too big (max 1000).
+                                    </div>
+                            </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputStreet">Street</label>
+                  <input type="text" class="form-control" id="inputStreet" placeholder="Enter street name" formControlName="street">
+                  <div *ngIf="form.controls['street'].errors && !form.controls['street'].pristine" class="error-msg">
+                                <div [hidden]="!form.controls['street'].errors.required">
+                                    Valid street is required.
+                                </div>
+                                <div [hidden]="!form.controls['street'].errors.minlength">
+                                    Street name is too short.
+                                </div>
+                            </div>  
+               
+                </div>
+              </div>
+
+
+
+
+
+    <div class="row justify-content-center" style="margin-top:20px;">
+        <div class="card ">
+    <img class="card-img-top" [src]='url[1]' alt="Card image cap">
+    <img *ngIf="isAdded(1)" (click)="clearImage(1)" src="../../../assets/images/delete.png" class="over">
+    <div class="card-body">
+     <a (click)="openUpload($event,1)" class="test btn">+</a>
+     <input id="upload" name="photo" accept="image/*" (change)="onImageAdded($event,1)" type="file" style="display:none;"/>
+    </div>
+        </div>
+
+        <div class="card">
+    <img class="card-img-top" [src]='url[2]' alt="Card image cap">
+    <img *ngIf="isAdded(2)" (click)="clearImage(2)" src="../../../assets/images/delete.png" class="over">
+    <div class="card-body">
+     <a (click)="openUpload($event,2)" class="test btn ">+</a>
+     <input id="upload2" name="photo" accept="image/*" (change)="onImageAdded($event,2)" type="file" style="display:none;"/>
+    </div>
+        </div>
+
+        <div class="card" >
+    <img class="card-img-top" [src]='url[3]' alt="Card image cap">
+    <img *ngIf="isAdded(3)" (click)="clearImage(3)" src="../../../assets/images/delete.png" class="over">
+    <div class="card-body">
+     <a (click)="openUpload($event,3)" class="test btn">+</a>
+     <input id="upload3" name="photo" accept="image/*" (change)="onImageAdded($event,3)" type="file" style="display:none;"/>
+    </div>
+        </div>
+
+        <div class="card" >
+        <img class="card-img-top" [src]='url[4]' alt="Card image cap">
+        <img *ngIf="isAdded(4)" (click)="clearImage(4)" src="../../../assets/images/delete.png" class="over">
+        <div class="card-body">
+         <a (click)="openUpload($event,4)" class="test btn">+</a>
+         <input id="upload4" name="photo" accept="image/*" (change)="onImageAdded($event,4)" type="file" style="display:none;"/>
+        </div>
+        </div>
+
+
+    </div>
+    <table align='center'>
+    <tr>
+        <td (click)='changeI(1)'>
+                <img [class.opi]="!isActive(1)" class="iconEdit" [src]='iconURL[1]'>
+                <label class="disapir" [class.overLine]="!isActive(1)" >Internet</label>
+        </td>
+        <td (click)='changeI(2)'>
+                <img [class.opi]="!isActive(2)" class="iconEdit" [src]='iconURL[2]'>
+                <label class="disapir" [class.overLine]="!isActive(2)">Cable TV</label>
+        </td>
+        <td (click)='changeI(3)'>
+                <img [class.opi]="!isActive(3)" class="iconEdit" [src]='iconURL[3]'>
+                <label class="disapir" [class.overLine]="!isActive(3)">Double bed</label>
+        </td>
+        <td (click)='changeI(4)'>
+                <img [class.opi]="!isActive(4)" class="iconEdit" [src]='iconURL[4]'>
+                <label class="disapir" [class.overLine]="!isActive(4)">Single bed</label>
+        </td>
+    </tr>
+    <tr> 
+        <td (click)='changeI(5)'>
+                <img [class.opi]="!isActive(5)" class="iconEdit" [src]='iconURL[5]'>
+                <label class="disapir" [class.overLine]="!isActive(5)">Air conditioning</label>
+        </td>
+        <td (click)='changeI(6)'>
+                <img [class.opi]="!isActive(6)" class="iconEdit" [src]='iconURL[6]'>
+                <label class="disapir" [class.overLine]="!isActive(6)">Fridge</label>
+        </td>
+        <td (click)='changeI(7)'>
+                <img [class.opi]="!isActive(7)" class="iconEdit" [src]='iconURL[7]'>
+                <label class="disapir" [class.overLine]="!isActive(7)">Stove</label>
+        </td>
+        <td (click)='changeI(8)'>
+                <img [class.opi]="!isActive(8)" class="iconEdit" [src]='iconURL[8]'>
+                <label class="disapir" [class.overLine]="!isActive(8)">Washing machine</label>
+        </td>
+    </tr>   
+    <tr>
+        <td (click)='changeI(9)'>
+                <img [class.opi]="!isActive(9)" class="iconEdit" [src]='iconURL[9]'>
+                <label class="disapir" [class.overLine]="!isActive(9)">Bathtub</label>
+        </td>
+        <td (click)='changeI(10)'>
+                <img [class.opi]="!isActive(10)" class="iconEdit" [src]='iconURL[10]'>
+                <label class="disapir" [class.overLine]="!isActive(10)">Microwave</label>
+        </td>
+        <td (click)='changeI(11)'>
+                <img [class.opi]="!isActive(11)" class="iconEdit" [src]='iconURL[11]'>
+                <label class="disapir" [class.overLine]="!isActive(11)">Landline</label>
+        </td>
+        <td (click)='changeI(12)'>
+                <img [class.opi]="!isActive(12)" class="iconEdit" [src]='iconURL[12]'>
+                <label class="disapir" [class.overLine]="!isActive(12)">Fireplace</label>
+                </td > 
+    </tr>
+    </table>
+
+    <div class="row justify-content-center ">
+    <button type="submit" style="margin:20px auto 20px;" [disabled]="!form.valid" class="btn btn-dark btn-lg">Save apartment</button>
+        </div>
+</form>
+</div>

@@ -1,0 +1,27 @@
+<table class="table" style="margin-top:20px;">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Username</th>
+      <th scope="col" *ngIf="status==2">Head</th>
+      <th scope="col" *ngIf="status==2">Admin</th>
+      <th scope="col">View</th>
+      <th scope="col">Ban</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; index as i;">
+      <th scope="row">{{i+1}}</th>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.userName}}</td>
+      <td *ngIf="status==2"><button type="button" (click)="setAdmin(user,2)" [class.btn-success]="user.admin==2" [class.btn-danger]="user.admin!=2" class="btn btn-danger">Head</button></td>
+      <td *ngIf="status==2"><button type="button" (click)="setAdmin(user,1)" [class.btn-success]="user.admin==1" [class.btn-danger]="user.admin!=1" class="btn">Admin</button></td>
+      <td><button type="button" (click)="showProfile(user.userName)" class="btn btn-success">View</button></td>
+      <td *ngIf="user.banned==true"><button type="button" (click)="banUser(user)" class="btn btn-success">Unban</button></td>
+      <td *ngIf="user.banned==false"><button type="button" (click)="banUser(user)" class="btn btn-danger">Ban</button></td>
+    </tr>
+  </tbody>
+</table>

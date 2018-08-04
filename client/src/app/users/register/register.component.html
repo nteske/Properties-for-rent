@@ -1,0 +1,132 @@
+<div class="container">
+<div class="row">
+    <div id="idemo" class="col-md-6 mb-3" style="text-align:center; max-width:350px;">
+        <img class="mb-4" src="../assets/images/house.png" alt="" width="128" height="128">
+        <p>In consideration of Your access to and use of the Service, You agree to provide true, accurate,
+           current and complete information about yourself 
+          and notify us of any changes to previously submitted registration data.
+          If You provide any information that is false, incomplete or otherwise inaccurate, or we have
+          a reasonable basis to suspect that such inaccurate information has been provided, we have the 
+          right to deny, suspend, or terminate Your account and refuse any and all current or future use 
+          of the Service (or any portion thereof).</p>
+    </div>
+        <form class="needs-validation col-md-6 mb-3" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <h4 class="mb-3">Registration form</h4>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">First name</label>
+              <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                  <div *ngIf="form.controls['firstName'].errors && !form.controls['firstName'].pristine" class="error-msg">
+                      <div [hidden]="!form.controls['firstName'].errors.required">
+                          Valid first name is required.
+                      </div>
+                      <div [hidden]="!form.controls['firstName'].errors.minlength">
+                          Fist name is too short.
+                      </div>
+                  </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Last name</label>
+              <input type="text" class="form-control" id="lastName" formControlName="lastName">
+              <div *ngIf="form.controls['lastName'].errors && !form.controls['lastName'].pristine" class="error-msg">
+                <div [hidden]="!form.controls['lastName'].errors.required">
+                    Valid last name is required.
+                </div>
+                <div [hidden]="!form.controls['lastName'].errors.minlength">
+                    Last name is too short.
+                </div>
+            </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="username">Username</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
+              </div>
+              <input type="text" class="form-control" id="userName" placeholder="Username" formControlName="userName">
+            </div>
+            <div *ngIf="form.controls['userName'].errors && !form.controls['userName'].pristine" class="error-msg">
+              <div [hidden]="!form.controls['userName'].errors.required">
+                  Valid username is required.
+              </div>
+              <div [hidden]="!form.controls['userName'].errors.minlength">
+                  Username is too short.
+              </div>
+          </div>
+          </div>
+
+          <div class="mb-3">
+              <label for="email">Password</label>
+              <input type="password" class="form-control" id="passw" formControlName="password">
+              <div *ngIf="form.controls['password'].errors && !form.controls['password'].pristine" class="error-msg">
+                <div [hidden]="!form.controls['password'].errors.required">
+                    Valid password is required.
+                </div>
+                <div [hidden]="!form.controls['password'].errors.minlength">
+                    Password is too short.
+                </div>
+            </div>
+            </div>
+            <div class="mb-3">
+                <label for="email">Confirm password</label>
+                <input type="password" class="form-control" id="cpassw" formControlName="cpassword">
+                <div *ngIf="form.controls['cpassword'].errors && !form.controls['cpassword'].pristine" class="error-msg">
+                  <div [hidden]="!form.controls['cpassword'].errors.required">
+                      Please confirm password.
+                  </div>
+              </div>
+              <div *ngIf="form.controls['password'].value!=form.controls['cpassword'].value">
+                Passwords doesn't match.
+              </div>
+              </div>
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com" formControlName="email">
+            <div *ngIf="form.controls['email'].errors && !form.controls['email'].pristine" class="error-msg">
+              <div [hidden]="!form.controls['email'].errors.required">
+                  Valid email is required.
+              </div>
+              <div [hidden]="!form.controls['email'].errors.email">
+                Valid email is required.
+            </div>
+          </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="tel">Phone number</label>
+            <input type="tel" class="form-control" id="tel" placeholder="+381655555555" formControlName="phone">
+            <div *ngIf="form.controls['phone'].errors && !form.controls['phone'].pristine" class="error-msg">
+              <div [hidden]="!form.controls['phone'].errors.required">
+                  Valid phone number is required.
+              </div>
+              <div [hidden]="!form.controls['phone'].errors.minlength">
+                  Phone number is too short.
+              </div>
+          </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="Bulevar oslobodjenja" formControlName="street" required="">
+            <div *ngIf="form.controls['street'].errors && !form.controls['street'].pristine" class="error-msg">
+              <div [hidden]="!form.controls['street'].errors.required">
+                  Valid address is required.
+              </div>
+              <div [hidden]="!form.controls['street'].errors.minlength">
+                  Address is too short.
+              </div>
+          </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite" formControlName="street2">
+          </div>
+
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!form.valid||form.controls['password'].value!=form.controls['cpassword'].value">Register</button>
+        </form>
+        </div>
+</div>

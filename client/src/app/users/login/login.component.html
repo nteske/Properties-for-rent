@@ -1,0 +1,11 @@
+<div id="pozadina" class="text-center">
+  <form class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <img class="mb-4" src="../assets/images/house.png" alt="" width="128" height="128">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="email" id="inputEmail" formControlName="email" class="form-control" placeholder="Email address" required="" autofocus="">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" formControlName="password" class="form-control" placeholder="Password" required="">
+    <button class="btn btn-lg btn-primary btn-block" [disabled]="!form.valid" type="submit">Login</button>
+  </form>
+</div>

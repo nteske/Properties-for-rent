@@ -1,0 +1,22 @@
+<table class="table" style="margin-top:20px; table-layout:fixed; max-width:100%">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Deposit</th>
+      <th scope="col">Area</th>
+      <th scope="col">View</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prop of properties; index as i;">
+      <th scope="row">{{i+1}}</th>
+      <td>{{prop.title}}</td>
+      <td>{{prop.deposit}}</td>
+      <td>{{prop.area}}</td>
+      <td><button type="button" (click)="showProperty(prop)" class="btn btn-success">View</button></td>
+      <td><button type="button" (click)="deleteProp(prop)" class="btn btn-danger">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

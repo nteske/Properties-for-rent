@@ -1,0 +1,61 @@
+.newAdd:hover{
+    opacity: 0.6;
+}
+
+.fixSize{
+    height: 160px;
+}
+
+.card .over{
+    visibility: hidden;
+}
+  .card:hover .over{
+    visibility: visible;
+}
+.card:hover{
+    opacity: 0.6;
+}
+
+.card .over2{
+    visibility: hidden;
+}
+  .card:hover .over2{
+    visibility: visible;
+}
+
+.over{
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+}
+
+.delet{
+    position: absolute;
+    top: 0%;
+    left: 96%;
+    width: 34px;
+    height: 34px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+}
+
+
+.over2{
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+}

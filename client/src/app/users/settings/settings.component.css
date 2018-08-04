@@ -1,0 +1,40 @@
+@media only screen and (max-width: 576px) {
+    .container{
+       padding-top:0px;
+   }
+}
+@media only screen and (min-width: 576px) {
+   .container{
+      padding-top:30px;
+  }
+}
+
+.text-center{
+    position:relative;
+}
+
+
+.text-center .kamera {
+    position: absolute;
+    top: 73%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+}
+.taster{
+    cursor: pointer;
+}
+.img-thumbnail{
+    width: 260px;
+    height: 260px;
+}
+
+.error-msg{
+    margin-left:15px;
+}
+
+.images{
+    margin-top:30px ;
+}

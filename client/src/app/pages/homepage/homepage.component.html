@@ -1,0 +1,48 @@
+<div class="position-relative overflow-hidden p-3 p-md-5 text-center" style="background-color:#2d3236; color:white;">
+  <img class="product-device box-shadow d-none d-md-block" src="../../../assets/images/background.png">
+  <div class="col-md-5 p-lg-5 mx-auto my-5">
+    <h1 class="display-4 font-weight-normal">Rent Apartment</h1>
+    <p class="lead font-weight-normal">Looking for an apartment or house for rent? We've got plenty of places to call home.</p>
+    <input type="text" (change)="goSearch($event)" class="form-control inpRound"  placeholder="search">
+
+  </div>
+</div>
+<div class="container" style="margin-top:20px; min-height:800px; margin-bottom:10px; max-width:1000px;"> 
+  <div class="form-group ml-auto" style="width:180px;">
+    <select class="form-control" (change)="sorting($event)" id="sel1">
+      <option>Date - newest</option>
+      <option>Date - oldest</option>
+      <option>Price - low to high</option>
+      <option>Price - high to low</option>
+    </select>
+  </div>
+
+<div class="card" *ngFor="let prop of toShow" (click)="goForProp(prop)" style="width: 18rem; margin:0 5px 5px; display:inline-block;">
+    <img class="card-img-top" [src]="getImage(prop)" style="width:100%; height:200px;" alt="Card image cap">
+    <span class="badge badge-success money">{{prop.deposit}}€</span>
+    <div class="card-body" style="padding-bottom:5px; padding-top:10px;"> 
+      <h5 class="card-title"  style="text-align:center;">{{prop.title}}</h5>
+      <p class="card-text" style="text-align:right;">{{prop.date|date:'d.M.yyyy'}}</p>
+    </div>
+  </div>
+
+
+</div>
+
+      <ul *ngIf="isThereAList()" class="pagination justify-content-center">
+          <li class="page-item">
+            <a class="page-link" style="color:#007bff;"(click)="OneLeft()" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item" *ngFor="let num of number"
+          [class.boja]="isActive(num)" [class.boja2]="!isActive(num)" ><a class="page-link" (click)="sliceon(num)" 
+           >{{num}}</a></li>
+          <li class="page-item">
+            <a class="page-link" style="color:#007bff;"  (click)="OneRight()" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>

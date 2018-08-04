@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Coda+Caption:800');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.allOfThem {
+    height: 100%;
+    text-align: center;
+    width: 100%;
+    background-color: #fff4f3;
+}
+
+#firstT{
+    font-family: 'Coda Caption', sans-serif;
+    font-size: 50px;
+}
+#secondT{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;  
+}

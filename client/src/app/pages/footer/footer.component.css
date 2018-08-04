@@ -1,0 +1,13 @@
+
+footer{
+    background-color: #191a1c;
+    bottom: 0%;
+     text-align: center;
+     color: #CCC;
+ }
+ 
+ footer p {
+     padding: 10.5px;
+     margin: 0px;
+     line-height: 100%;
+ }

@@ -1,0 +1,23 @@
+<div class="container" style="max-width:900px; text-align:center;">
+<h2>My Apartments</h2>
+
+  
+<div class="card" *ngFor="let prop of propArray" style="width: 13rem; margin:5px 7px 5px; display:inline-block;">
+  <img class="card-img-top fixSize" [src]="getImage(prop)" alt="Card image cap">
+  <img src="../../../assets/images/clear.png" class="delet" (click)="deleteProp(prop)">
+  <img src="../../../assets/images/view.png" class="over" (click)="viewProp(prop)">
+  <img src="../../../assets/images/edit.png" class="over2" (click)="editProp(prop)">
+  <div class="card-body" style="padding-top:5px;">
+    <h6 class="card-subtitle text-truncate">{{prop.title}}</h6>
+  </div>
+</div>
+
+
+<div class="card newAdd" (click)="goForNew()"  style="width: 13rem; border:none; display:inline-block;">
+    <img class="card-img-top" src="../../../assets/images/addnew.png" alt="Card image cap">
+    <div class="card-body" style="padding-top:0px;">
+      <h5 class="card-title">create new</h5>
+    </div>
+  </div>
+
+  </div>

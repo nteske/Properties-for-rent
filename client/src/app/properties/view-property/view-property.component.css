@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@media only screen and (max-width: 576px) {
+     .container{
+        padding-top:0px;
+    }
+    .celija{
+        text-align: center;
+    }
+    .rightIm{
+        margin-top:0px;
+    }
+    .celija{
+        padding: 0px;
+    }
+
+}
+@media only screen and (max-width: 765px) {
+    label{
+        display: none;
+    }
+}
+@media only screen and (min-width: 576px) {
+    .container{
+       padding-top:20px;
+   }
+   .bordr{
+    margin-left:10px
+   }
+       .rightIm{
+        margin-top:30px;
+    }
+    .celija{
+        padding: 5px;
+        text-align: left;
+    }
+
+}
+
+.opi{
+    opacity: 0.3;
+}
+.overLine{
+    text-decoration: line-through;
+}
+.left{
+    position: absolute;
+    top: 24%;
+    left: 7%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+}
+
+.right{
+    position: absolute;
+    top: 24%;
+    left: 93%;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: none;
+    cursor: pointer;
+}
+
+
+.bordr{
+    border:1px solid #949494;
+    border-radius: .25rem;
+}
+
+.text-center{
+    position:relative;
+}
+
+.iconEdit{
+    height: 40px;
+    width: 40px;
+}
+
+.celija{
+    max-width: 200px;
+    padding-top:20px;
+}
+
+.ikonice{
+    margin-bottom: 20px;
+}
+.img-thumbnail{
+    width: 180px;
+    height: 180px;
+}
+
+.avatar{
+    margin-top:12px;
+    margin-bottom: 5px;
+}

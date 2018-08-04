@@ -1,0 +1,91 @@
+<div class="container" *ngIf='isDataLoaded' style="margin:0 auto 5px; max-width:1000px;">
+  <div class="row" style="margin-top:10px;">
+   <!-- edit form column -->
+   <div class="col-md-8 col-sm-6 col-xs-12 personal-info" style="max-width:800px;">
+     <div class="bordr text-center" style="margin-bottom:5px;">
+      <img [src]="images[pos]" style="margin-top:0px; width:100%; height:330px;" class="images">
+      <img src="../../../assets/images/left.png" (click)="left()" class="left">  
+      <img src="../../../assets/images/right.png" (click)="right()" class="right">
+      <table class="table text-center " style="table-layout: fixed;width: 100%;">
+        <tr >
+          <td class="text-center" colspan="4">{{property.title}}</td>
+        </tr>
+        <tr>
+          <td style="text-align:right;">Area:</td><td>{{property.area}}m2</td>
+          <td style="text-align:right;">Street:</td><td>{{property.street}}</td>
+        </tr>
+        <tr >
+            <td style="text-align:right;">Deposit:</td><td>{{property.deposit}}€</td>
+            <td style="text-align:right;">Rooms:</td><td>{{property.rooms}}</td>
+        </tr>
+      </table>
+
+      <table align='center' class="ikonice" style="width: 100%;">
+          <tr>
+              <td class="celija">
+                      <img [class.opi]="!isActive(1)" class="iconEdit" [src]='iconURL[1]'>
+                      <label [class.overLine]="!isActive(1)" >Internet</label>
+              </td>
+              <td class="celija">
+                      <img [class.opi]="!isActive(2)" class="iconEdit" [src]='iconURL[2]'>
+                      <label [class.overLine]="!isActive(2)">Cable TV</label>
+              </td>
+              <td class="celija">
+                      <img [class.opi]="!isActive(3)" class="iconEdit" [src]='iconURL[3]'>
+                      <label [class.overLine]="!isActive(3)">Double bed</label>
+              </td>
+              <td class="celija">
+                      <img [class.opi]="!isActive(4)" class="iconEdit" [src]='iconURL[4]'>
+                      <label [class.overLine]="!isActive(4)">Single bed</label>
+              </td>
+          </tr>
+          <tr> 
+              <td class="celija">
+                      <img [class.opi]="!isActive(5)" class="iconEdit" [src]='iconURL[5]'>
+                      <label [class.overLine]="!isActive(5)">Air conditioning</label>
+              </td>
+              <td class="celija">
+                      <img [class.opi]="!isActive(6)" class="iconEdit" [src]='iconURL[6]'>
+                      <label [class.overLine]="!isActive(6)">Fridge</label>
+              </td>
+              <td class="celija">
+                      <img [class.opi]="!isActive(7)" class="iconEdit" [src]='iconURL[7]'>
+                      <label [class.overLine]="!isActive(7)">Stove</label>
+              </td>
+              <td class="celija">
+                      <img [class.opi]="!isActive(8)" class="iconEdit" [src]='iconURL[8]'>
+                      <label [class.overLine]="!isActive(8)">Washing machine</label>
+              </td>
+          </tr>   
+          <tr>
+              <td class="celija">
+                      <img [class.opi]="!isActive(9)" class="iconEdit" [src]='iconURL[9]'>
+                      <label [class.overLine]="!isActive(9)">Bathtub</label>
+              </td>
+              <td class="celija">
+                      <img [class.opi]="!isActive(10)" class="iconEdit" [src]='iconURL[10]'>
+                      <label [class.overLine]="!isActive(10)">Microwave</label>
+              </td>
+              <td class="celija">
+                      <img [class.opi]="!isActive(11)" class="iconEdit" [src]='iconURL[11]'>
+                      <label [class.overLine]="!isActive(11)">Landline</label>
+              </td>
+              <td class="celija">
+                      <img [class.opi]="!isActive(12)" class="iconEdit" [src]='iconURL[12]'>
+                      <label [class.overLine]="!isActive(12)">Fireplace</label>
+                      </td > 
+          </tr>
+          </table>
+    </div>
+   </div>
+
+   <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="text-center bordr rightIm">
+            <img  [src]='url' class="avatar images rounded-circle img-thumbnail" alt="avatar">
+            <h6>{{property.user.firstName+' '+property.user.lastName}}</h6>
+            <star-rating (ratingChange)="onRatingChange($event)" [starType]="'svg'" [speed]="'slow'" [size]="'large'" [rating]="star" [disabled]="!isLoggedIn()"></star-rating>
+            <button type="button" (click)='goToProfile()' class="btn btn-info" style="margin-top:10px; margin-bottom:10px;">View profile</button>
+          </div>
+  </div>
+ </div>
+</div>
